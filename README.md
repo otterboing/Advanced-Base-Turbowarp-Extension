@@ -1,3 +1,6 @@
+## Check it out:
+[DefaultExtension.js](/DefaultExtension.js)
+
 ## Use how you like.
 
 Though it may have the MIT license all around it, this base extension has no actual license.
