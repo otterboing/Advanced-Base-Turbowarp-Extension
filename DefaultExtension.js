@@ -10,11 +10,7 @@
     const ID = "OBID";
     const NAME = 'NAME';
 
-    const colorDef = {
-        1: '#ff695e',
-        2: '#bd3e35',
-        3: '#bd3e35'
-    };
+    //
 
     const vm = Scratch.vm;
     const runtime = vm.runtime;
@@ -55,23 +51,13 @@
 
     function MI(text, value) { return { text: text, value: value } }
 
-    // Set default colors at the config | top of document.
-    function getColor(color, number) {
-        if (color == null | color == '' & number >= 1 & number < 4) { return colorDef[number]; } else { return color; }
-    }
-
-    function makeBlock(opcode, type, text, args, extra, icon, hide, color1, color2, color3) {
+    function makeBlock(opcode, type, text, args, extra) {
         const block = {
             opcode: opcode,
             blockType: type,
             text: text,
             allowDropAnywhere: true,
-            blockIconURI: icon,
-            arguments: args,
-            hidefromPalette: hide,
-            color1: getColor(color1, 1),
-            color2: getColor(color2, 2),
-            color3: getColor(color3, 3),
+            arguments: args
         };
         if (typeof extra === "object") {
             Object.assign(block, extra);
@@ -103,12 +89,13 @@
 
         getInfo() {
             return {
+                // 👇 Set at config | top.
                 id: ID,
                 name: NAME,
                 menuIconURI: icon,
-                // 👇 These are just for the menu icon, for block colors use the config on top.
                 color1: "#ff695e",
                 color2: "#bd3e35",
+                color3: "#bd3e35",
                 //
                 blocks: [
                     // You can make breaks by using "BR,".
